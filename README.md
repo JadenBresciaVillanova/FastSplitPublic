@@ -1,7 +1,7 @@
 # Divvy - The Easy Bill Splitter
 
 <p align="center">
-  <img src="assets/logov2.png" alt="Divvy Logo" width="120">
+  <img src="assets/logov2.png" alt="Divvy Logo" width="400">
 </p>
 
 Snap a photo of any receipt. AI reads every item, price, and total. Assign items to friends, generate a shareable web link, and get paid back through Venmo, PayPal, or Cash App. No app needed on their end.
