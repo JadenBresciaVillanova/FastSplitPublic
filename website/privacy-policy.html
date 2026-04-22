@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divvy - Privacy Policy</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 720px; margin: 0 auto; padding: 24px; color: #333; line-height: 1.6; }
+    h1 { color: #4F65B1; }
+    h2 { color: #555; margin-top: 32px; }
+    p, li { font-size: 15px; }
+    a { color: #4F65B1; }
+  </style>
+</head>
+<body>
+  <h1>Divvy Privacy Policy</h1>
+  <p><strong>Last updated:</strong> April 21, 2026</p>
+
+  <h2>1. What Divvy Does</h2>
+  <p>Divvy is a receipt-scanning app that uses AI to parse receipt images into structured data so you can split costs with friends. This policy explains what data we collect, how we use it, and your rights.</p>
+
+  <h2>2. Data We Collect</h2>
+  <ul>
+    <li><strong>Account information:</strong> When you sign in with Apple, Google, or email/password, we receive your authentication identifier (user ID) and, if provided, your email address. We do not store your password — authentication is handled by Firebase Authentication.</li>
+    <li><strong>Receipt images:</strong> When you scan a receipt, the image is sent to our server for AI processing. We do not permanently store receipt images — they are discarded after processing. The parsed text result (items, prices, totals) is stored in our database linked to your user ID.</li>
+    <li><strong>Usage data:</strong> We track your scan credit balance (how many scans you have available).</li>
+    <li><strong>Device identifiers:</strong> If you grant permission via Apple's App Tracking Transparency (ATT) prompt, your Identifier for Advertisers (IDFA) may be collected by our advertising partners (Google AdMob and Unity Ads) for ad personalization and measurement. You can revoke this at any time in Settings &rarr; Privacy &amp; Security &rarr; Tracking.</li>
+    <li><strong>Contacts (local only):</strong> If you grant permission, Divvy reads contact names and phone numbers on your device to help you quickly add friends when splitting a bill. Your contacts are never uploaded to our servers, stored in our database, or shared with any third party. All contact matching happens locally on your device.</li>
+    <li><strong>Name:</strong> Your first and last name, entered in Settings, is used to identify you on shared receipts. It is stored in our database linked to your user ID.</li>
+  </ul>
+
+  <h2>3. How We Use Your Data</h2>
+  <ul>
+    <li><strong>Receipt parsing:</strong> Receipt images are sent to a cloud AI service for text extraction. The image is processed according to the provider's <a href="https://policies.google.com/privacy">privacy policy</a>. We send only the image — no personal information is included in AI requests.</li>
+    <li><strong>Storing results:</strong> Parsed receipt data is stored in Google Cloud Firestore so you can access your scan results.</li>
+    <li><strong>Scan credits:</strong> We track credits to manage the ad-supported scanning feature.</li>
+  </ul>
+
+  <h2>4. Advertising and Tracking</h2>
+  <p>Divvy uses Google AdMob and Unity Ads to show ads that earn you scan credits. These ad networks may collect device identifiers (including the IDFA), advertising data, and interaction data for the purpose of serving targeted ads and measuring ad effectiveness.</p>
+  <p><strong>App Tracking Transparency:</strong> On iOS, Divvy requests your permission before allowing ad networks to track your activity across other companies' apps and websites. If you decline, you will see generic (non-personalized) ads instead. The app works the same either way. You can change this at any time in Settings &rarr; Privacy &amp; Security &rarr; Tracking.</p>
+  <p><strong>SKAdNetwork:</strong> Divvy includes SKAdNetwork IDs that allow Apple to attribute ad conversions in a privacy-preserving way, without revealing your personal information to advertisers.</p>
+  <p>For more details, see <a href="https://policies.google.com/technologies/ads">Google's advertising policies</a> and <a href="https://unity.com/legal/privacy-policy">Unity's privacy policy</a>.</p>
+
+  <h2>5. Data Storage and Security</h2>
+  <p>Your data is stored on Google Cloud Platform (Firestore) in the United States (us-east4 region). We use Firebase Authentication for secure sign-in and HTTPS encryption for all data in transit. Access to your data is restricted to your authenticated account.</p>
+
+  <h2>6. Data Sharing</h2>
+  <p>We do not sell your personal data. We share data only with:</p>
+  <ul>
+    <li><strong>Google Cloud / Firebase:</strong> Infrastructure provider for authentication, database, and AI processing.</li>
+    <li><strong>Google AdMob:</strong> Advertising partner for serving and measuring ads.</li>
+    <li><strong>Unity Ads:</strong> Advertising mediation partner for serving ads.</li>
+  </ul>
+
+  <h2>7. Data Retention</h2>
+  <p>Parsed receipt data is retained in your account until you delete your account. Receipt images are not stored after processing.</p>
+
+  <h2>8. Your Rights</h2>
+  <ul>
+    <li><strong>Delete your account:</strong> You can delete your account and all associated data at any time from within the app (Home screen &rarr; Delete Account). This permanently removes your user profile, all stored receipts, and your Firebase Authentication account.</li>
+    <li><strong>Access your data:</strong> All your receipt data is visible within the app.</li>
+  </ul>
+
+  <h2>9. Children's Privacy</h2>
+  <p>Divvy is not directed at children under 13. We do not knowingly collect data from children under 13.</p>
+
+  <h2>10. Changes to This Policy</h2>
+  <p>We may update this policy from time to time. The "Last updated" date at the top reflects the most recent revision.</p>
+
+  <h2>11. Contact</h2>
+  <p>If you have questions about this privacy policy, contact us at <a href="mailto:jadenbrescia@gmail.com">jadenbrescia@gmail.com</a>.</p>
+</body>
+</html>

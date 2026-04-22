@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divvy - The Easy Bill Splitter</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #b9c5ed; min-height: 100vh; color: #333; }
+
+    /* Nav */
+    .nav { background: #3b5098; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; position: sticky; top: 0; z-index: 10; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
+    .nav-brand img { height: 32px; width: 32px; border-radius: 6px; }
+    .nav-brand span { font-size: 18px; font-weight: 700; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: #fff; }
+
+    /* Hero */
+    .hero { background: #4F65B1; color: #fff; padding: 60px 20px; text-align: center; }
+    .hero img { width: 120px; height: 120px; border-radius: 24px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+    .hero h1 { font-size: 36px; font-weight: 700; margin-bottom: 8px; }
+    .hero .subtitle { font-size: 18px; opacity: 0.9; max-width: 500px; margin: 0 auto; line-height: 1.5; }
+
+    /* Status banner */
+    .status-banner { background: #fff; border-left: 4px solid #4F65B1; max-width: 600px; margin: -20px auto 0; border-radius: 10px; padding: 16px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); position: relative; z-index: 2; }
+    .status-banner h3 { font-size: 14px; font-weight: 700; color: #4F65B1; margin-bottom: 4px; }
+    .status-banner p { font-size: 13px; color: #666; line-height: 1.5; }
+
+    /* Content */
+    .content { max-width: 600px; margin: 0 auto; padding: 32px 20px; }
+    .card { background: #fff; border-radius: 14px; padding: 24px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .card h2 { font-size: 18px; font-weight: 700; color: #4F65B1; margin-bottom: 10px; }
+    .card p { font-size: 15px; line-height: 1.6; color: #555; }
+
+    /* Features list */
+    .features { list-style: none; padding: 0; }
+    .features li { padding: 10px 0; font-size: 15px; color: #555; border-bottom: 1px solid #eee; }
+    .features li:last-child { border-bottom: none; }
+    .features li strong { color: #333; }
+
+    /* About section */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .about-item { background: #f5f6fa; border-radius: 10px; padding: 14px; }
+    .about-item strong { display: block; font-size: 13px; color: #4F65B1; margin-bottom: 4px; }
+    .about-item span { font-size: 14px; color: #555; }
+    @media (max-width: 480px) { .about-grid { grid-template-columns: 1fr; } }
+
+    /* Footer */
+    .footer { text-align: center; padding: 24px 20px 32px; font-size: 13px; color: #666; }
+    .footer a { color: #4F65B1; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-brand">
+      <img src="/logov2.png" alt="Divvy logo">
+      <span>Divvy</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#about">About</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <img src="/logov2.png" alt="Divvy - The Easy Bill Splitter">
+    <h1>Divvy</h1>
+    <p class="subtitle">Scan a receipt, assign items to friends, split the bill. Powered by AI.</p>
+  </div>
+
+  <div class="status-banner">
+    <h3>Status: In App Store Review</h3>
+    <p>Divvy is under review by Apple and will be available on the App Store soon. The app includes a 4-tier ad system, AI-powered receipt scanning, and shareable web links for splitting bills with friends.</p>
+  </div>
+
+  <div class="content">
+    <div class="card" id="how-it-works">
+      <h2>How It Works</h2>
+      <ul class="features">
+        <li><strong>Scan</strong> - Take a photo of any receipt and AI extracts every item and price instantly</li>
+        <li><strong>Split</strong> - Assign items to friends so everyone pays for exactly what they ordered</li>
+        <li><strong>Share</strong> - Send a link so friends can see their share and pay you through Venmo, PayPal, or Cash App</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Free to Use</h2>
+      <p>Divvy is completely free. Watch a short ad to earn a scan credit — no subscriptions, no hidden fees, no paywalls. Your first scan is on us. If ads aren't available, you'll get a free daily pass so you're never stuck.</p>
+    </div>
+
+    <div class="card" id="about">
+      <h2>About</h2>
+      <p>Divvy was built to solve a simple problem: splitting a restaurant bill shouldn't require a calculator and a group chat argument. Point your camera at the receipt and let AI handle the rest.</p>
+      <div class="about-grid">
+        <div class="about-item">
+          <strong>Platform</strong>
+          <span>iOS (iPhone)</span>
+        </div>
+        <div class="about-item">
+          <strong>Price</strong>
+          <span>Free (ad-supported)</span>
+        </div>
+        <div class="about-item">
+          <strong>Developer</strong>
+          <span>Jaden Brescia</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/privacy-policy.html">Privacy Policy</a> &middot; Contact: jadenbresciawebsite@gmail.com
+    <br><br>
+    &copy; 2026 Divvy. All rights reserved.
+  </div>
+</body>
+</html>
