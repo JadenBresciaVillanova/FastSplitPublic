@@ -49,6 +49,9 @@ Snap a photo of any receipt. AI reads every item, price, and total. Assign items
 - **Payment Deep Links** — Venmo, PayPal, and Cash App links pre-filled with the exact amount and itemized notes
 - **Receipt History** — Track past splits, see who's paid, and revisit any receipt
 - **Free to Use** — Watch a short ad to earn a scan credit. No subscriptions, no paywalls. First scan is free
+- **Upload Idempotency** — SHA-256 dedup prevents duplicate AI calls on network retries
+- **Undo Delete** — Accidentally remove a friend from the split? Stack-based undo with a 12-second countdown
+- **Crashlytics** — Firebase Crashlytics integrated for production crash monitoring
 
 ---
 
@@ -79,15 +82,30 @@ Start Screen --> Tutorial --> Login --> Home
 
 ## Apple Review Journey
 
-This app went through multiple rounds of Apple App Store review. Each rejection led to significant improvements:
+Divvy has been through **6 Apple review rejections** (and counting). Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better. The review process is ongoing.
 
-| Review | Date | Result | Key Issue | Fix |
-|--------|------|--------|-----------|-----|
-| #1 | Apr 7, 2026 | Rejected | Privacy strings too vague + iPad unresponsive | Rewrote purpose strings with specific examples, disabled iPad |
-| #2 | Apr 10, 2026 | Rejected | No ads loaded in review sandbox | Built 4-tier ad cascade with free pass fallback |
-| #3 | Apr 2026 | Pending | — | Full cascade + progressive status + review notes |
+| # | Date | Guideline | Rejection Reason | Fix |
+|---|------|-----------|------------------|-----|
+| 1 | Apr 7 | 5.1.1(ii), 2.1(a) | Privacy purpose strings too vague; app froze on iPad after login | Rewrote camera/photo permission strings with specific examples; set `supportsTablet: false` |
+| 2 | Apr 10 | 2.1(a) | "No ads displayed" after tapping Watch Ad | Ad networks don't serve in Apple's sandbox — built entire 4-tier ad cascade with free pass fallback |
+| 3 | Apr 21 | 2.1(a) | "Screen loads indefinitely" (ad cascade took ~96 seconds) | Cut cascade from 96s to 34s, added visible countdown timer, created demo account with 100 credits |
+| 4 | Apr 23 | 2.1(a), 2.1 | Still flagging "no ads"; ATT prompt not found by reviewer | Explained expected sandbox behavior; moved ATT to first Watch Ad tap; provided screen recording from physical device |
+| 5 | Apr 23 | 5.1.1(iv) | ATT pre-prompt wording "encouraged tracking" ("Allow Personalized Ads" button) | Complete ATT rewrite — neutral "About Ads in Divvy" title, single "Continue" button, no persuasive language |
+| 6 | Apr 25 | 4 (Design) | Google Sign-In opened Safari; sign-up text clipped on iPad | Replaced `@react-native-google-signin` with `expo-auth-session` (in-app `ASWebAuthenticationSession`); built responsive scaling hook |
 
-See [docs/apple-reviews/](docs/apple-reviews/) for the full review history with responses.
+### Lessons Learned
+
+**Apple tests on iPad even if you declare iPhone-only.** Setting `supportsTablet: false` removes your app from iPad search results, but Apple reviewers still test iPhone apps in iPad compatibility mode. Layout bugs there will get you rejected.
+
+**Ad networks don't serve ads during App Review.** This caused three consecutive rejections (Reviews 2-4). Google AdMob and Unity Ads return nothing in Apple's sandbox. The solution was a 4-tier ad cascade with a backend free pass system, plus a demo account with pre-loaded credits so reviewers could test without ads.
+
+**ATT pre-prompt wording is heavily scrutinized.** Buttons labeled "Allow Personalized Ads" were flagged as directing users toward accepting tracking. Even a "No Thanks" option that skipped ATT was a violation. Apple requires strictly neutral language — a single "Continue" button that always leads to the system dialog.
+
+**Provide video evidence.** Starting with Review 4, screen recordings from a physical device proved that features (ATT, Google Auth, permissions) were working correctly. Apple can only test what they can see in their environment.
+
+**Every rejection made the app better.** The ad system went from a single ad format with no fallback to a production-grade cascade with SSV verification, rate limiting, mediation, and a free pass safety net. The login flow went from opening Safari to a seamless in-app sheet. None of these improvements would have happened without the review process.
+
+See [docs/apple-reviews/](docs/apple-reviews/) for the full review history with detailed responses.
 
 ---
 
@@ -99,7 +117,9 @@ Users watch a rewarded ad to earn 1 scan credit. Each receipt scan consumes 1 cr
 
 ## Status
 
-**Version:** 1.0.0 | **Platform:** iOS (iPhone) | **Status:** In App Store Review
+**Version:** 1.5 | **Platform:** iOS (iPhone) | **Status:** In active App Store review (7th submission pending)
+
+> Divvy is fully built and functional but **not yet available on the App Store**. The app has been through 6 Apple review cycles, each rejected for a different reason. Every rejection has been addressed and the app has improved substantially as a result. The review process is ongoing.
 
 ---
 
