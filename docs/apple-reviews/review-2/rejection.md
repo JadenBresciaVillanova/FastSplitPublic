@@ -57,9 +57,6 @@ Additionally, Apple continued testing on iPad despite `supportsTablet: false` be
 - Updated privacy policy with IDFA/tracking disclosures
 - Updated App Store Connect privacy declarations
 
-### Review notes added:
-Explaining that ad networks don't serve in review environment, expected cascade timing, and free credit is granted automatically.
-
 ---
 
 ## Our Response
@@ -79,12 +76,6 @@ What we changed:
 3. Additional improvements since last submission: App Tracking Transparency prompt, server-side ad verification, AdMob mediation with Unity Ads, connectivity checks, loading overlay with status updates, rate limiting, and updated privacy disclosures.
 
 Expected behavior during review: When you tap "Watch Ad for +1 Credit," the app will cycle through ad tiers (each timing out quickly since no ads will fill in the review environment), then grant a free pass. The total wait is approximately 20-25 seconds with status messages updating throughout. The app will then have 1 scan credit available for testing the full receipt scanning flow.
-
-To test the full app flow:
-1. Tap "Watch Ad for +1 Credit" — wait for the cascade to complete — a free credit will be granted
-2. Tap "Upload or Take Photo" to scan a receipt
-3. The AI will extract all items, prices, tax, and totals
-4. Add friends and assign items to split the bill
 
 Please note this app is iPhone-only (supportsTablet is set to false).
 

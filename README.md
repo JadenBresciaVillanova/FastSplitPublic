@@ -82,7 +82,7 @@ Start Screen --> Tutorial --> Login --> Home
 
 ## Apple Review Journey
 
-Divvy has been through **6 Apple review rejections** (and counting). Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better. The review process is ongoing.
+Divvy went through **8 Apple review rejections** before being approved on May 27, 2026. Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better.
 
 | # | Date | Guideline | Rejection Reason | Fix |
 |---|------|-----------|------------------|-----|
@@ -92,6 +92,8 @@ Divvy has been through **6 Apple review rejections** (and counting). Each reject
 | 4 | Apr 23 | 2.1(a), 2.1 | Still flagging "no ads"; ATT prompt not found by reviewer | Explained expected sandbox behavior; moved ATT to first Watch Ad tap; provided screen recording from physical device |
 | 5 | Apr 23 | 5.1.1(iv) | ATT pre-prompt wording "encouraged tracking" ("Allow Personalized Ads" button) | Complete ATT rewrite — neutral "About Ads in Divvy" title, single "Continue" button, no persuasive language |
 | 6 | Apr 25 | 4 (Design) | Google Sign-In opened Safari; sign-up text clipped on iPad | Replaced `@react-native-google-signin` with `expo-auth-session` (in-app `ASWebAuthenticationSession`); built responsive scaling hook |
+| 7 | Apr 28 | 4 (Design) | Google Auth re-raised (was actually ASWebAuthenticationSession); iPad toggle re-raised | Responded with video evidence from physical iPad proving in-app auth; added ScrollView wrapping for iPad |
+| 8 | May 25 | 2.1 | ATT prompt not found by reviewer (re-raised) | No code change — responded with video evidence showing ATT flow. **Approved May 27.** |
 
 ### Lessons Learned
 
@@ -101,7 +103,9 @@ Divvy has been through **6 Apple review rejections** (and counting). Each reject
 
 **ATT pre-prompt wording is heavily scrutinized.** Buttons labeled "Allow Personalized Ads" were flagged as directing users toward accepting tracking. Even a "No Thanks" option that skipped ATT was a violation. Apple requires strictly neutral language — a single "Continue" button that always leads to the system dialog.
 
-**Provide video evidence.** Starting with Review 4, screen recordings from a physical device proved that features (ATT, Google Auth, permissions) were working correctly. Apple can only test what they can see in their environment.
+**Provide video evidence.** Starting with Review 4, screen recordings from a physical device proved that features (ATT, Google Auth, permissions) were working correctly. Apple can only test what they can see in their environment. Video evidence resolved the final rejection (Review #8) without any code change.
+
+**Persistence pays off.** Reviews #7 and #8 re-raised issues that were already fixed — the reviewer misidentified ASWebAuthenticationSession as Safari, and didn't navigate to the ATT trigger point. Both were resolved by responding with evidence rather than changing code. Sometimes "the fix" is better communication.
 
 **Every rejection made the app better.** The ad system went from a single ad format with no fallback to a production-grade cascade with SSV verification, rate limiting, mediation, and a free pass safety net. The login flow went from opening Safari to a seamless in-app sheet. None of these improvements would have happened without the review process.
 
@@ -117,9 +121,9 @@ Users watch a rewarded ad to earn 1 scan credit. Each receipt scan consumes 1 cr
 
 ## Status
 
-**Version:** 1.5 | **Platform:** iOS (iPhone) | **Status:** In active App Store review (7th submission pending)
+**Version:** 1.7 | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (approved May 27, 2026)
 
-> Divvy is fully built and functional but **not yet available on the App Store**. The app has been through 6 Apple review cycles, each rejected for a different reason. Every rejection has been addressed and the app has improved substantially as a result. The review process is ongoing.
+> Divvy is **live on the App Store** after 8 rejections and 51 days of review. Each rejection surfaced a different issue — privacy strings, ad behavior in sandbox environments, ATT compliance, OAuth UX, and iPad layout. Every one was resolved, and the app is substantially better for it.
 
 ---
 

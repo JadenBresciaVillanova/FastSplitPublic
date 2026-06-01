@@ -27,7 +27,7 @@
 
 ---
 
-## Our Response (April 7, 2026)
+## Our Response
 
 Hi,
 
