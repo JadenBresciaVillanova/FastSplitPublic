@@ -121,9 +121,11 @@ Users watch a rewarded ad to earn 1 scan credit. Each receipt scan consumes 1 cr
 
 ## Status
 
-**Version:** 1.7 | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (approved May 27, 2026)
+**Version:** 1.7 | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (approved May 27, 2026) — actively improving
 
 > Divvy is **live on the App Store** after 8 rejections and 51 days of review. Each rejection surfaced a different issue — privacy strings, ad behavior in sandbox environments, ATT compliance, OAuth UX, and iPad layout. Every one was resolved, and the app is substantially better for it.
+>
+> The approved version is the MVP. Active development is focused on UI/UX refinements, improved visual design, and a more polished user experience across the app.
 
 ---
 
