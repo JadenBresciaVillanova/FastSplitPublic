@@ -1,23 +1,29 @@
-# Divvy - The Easy Bill Splitter
+# FastSplit - The Easy Bill Splitter
 
 <p align="center">
-  <img src="assets/logov2.png" alt="Divvy Logo" width="400">
+  <img src="assets/logov3.png" alt="FastSplit Logo" width="400">
 </p>
 
-Snap a photo of any receipt. AI reads every item, price, and total. Assign items to friends, generate a shareable web link, and get paid back through Venmo, PayPal, or Cash App. No app needed on their end.
+Snap a photo of any receipt. AI reads every item, price, quantity, and total. Assign items to friends, generate a shareable web link, and get paid back through Venmo, PayPal, or Cash App. No app needed on their end.
+
+**Live on the iOS App Store:** [apps.apple.com/us/app/fastsplit/id6761271231](https://apps.apple.com/us/app/fastsplit/id6761271231)
+
+### App Video
+
+▶ **[Watch the FastSplit tutorial video](assets/FastSplit_Tutorial.mp4)** — the full in-app walkthrough: scan → split → share → pay.
 
 ### App Screenshots
 
 <p align="center">
-  <img src="assets/tutorial_1.png" alt="Scan" width="150">
+  <img src="assets/screenshots/01.png" alt="Scan" width="150">
   &nbsp;&nbsp;
-  <img src="assets/tutorial_2.png" alt="Split" width="150">
+  <img src="assets/screenshots/02.png" alt="Split" width="150">
   &nbsp;&nbsp;
-  <img src="assets/tutorial_3.png" alt="Share" width="150">
+  <img src="assets/screenshots/03.png" alt="Share" width="150">
   &nbsp;&nbsp;
-  <img src="assets/tutorial_4.png" alt="Assign" width="150">
+  <img src="assets/screenshots/04.png" alt="Breakdown" width="150">
   &nbsp;&nbsp;
-  <img src="assets/tutorial_5.png" alt="Pay" width="150">
+  <img src="assets/screenshots/05.png" alt="Pay" width="150">
 </p>
 
 ### Accepted Payment Methods
@@ -34,24 +40,26 @@ Snap a photo of any receipt. AI reads every item, price, and total. Assign items
 
 ## How It Works
 
-1. **Scan** — Take a photo of any receipt and AI extracts every item, price, tax, and total instantly
+1. **Scan** — Take a photo of any receipt and AI extracts every item, price, quantity, tax, and total instantly
 2. **Split** — Add friends and tap items to assign who ordered what. Tax and tip are split proportionally
-3. **Share** — Generate a web link your friends can open in any browser — no app install needed
+3. **Share** — Send friends a link they can open in any browser to mark their own items — no app install needed
 4. **Pay** — One-tap payment links via Venmo, PayPal, or Cash App with itemized breakdowns
 
 ---
 
 ## Features
 
-- **AI Receipt Scanning** — Handles handwritten receipts, itemized bills, tax, discounts, and tips
-- **Smart Splitting** — Assign items to multiple people. Tax and tip split proportionally based on what each person ordered
-- **Shareable Web Links** — Recipients open a link in their browser to see their share and pay. No app download required
-- **Payment Deep Links** — Venmo, PayPal, and Cash App links pre-filled with the exact amount and itemized notes
-- **Receipt History** — Track past splits, see who's paid, and revisit any receipt
-- **Free to Use** — Watch a short ad to earn a scan credit. No subscriptions, no paywalls. First scan is free
-- **Upload Idempotency** — SHA-256 dedup prevents duplicate AI calls on network retries
-- **Undo Delete** — Accidentally remove a friend from the split? Stack-based undo with a 12-second countdown
-- **Crashlytics** — Firebase Crashlytics integrated for production crash monitoring
+- **AI Receipt Scanning** — Handles itemized bills, quantities, tax, discounts, and tips across restaurant, grocery, and retail receipt formats
+- **Quantity Splitting** — A "3 x Juice" line shows as ×3 with a **Split Item** button that breaks it into single rows (penny-exact math) so each one can go to a different person — with Undo
+- **Accuracy Safeguards** — Items the AI wasn't sure about are highlighted for review, and a built-in totals check compares the parsed math line-by-line against your receipt photo so mistakes are easy to spot and fix
+- **Smart Splitting** — Assign items to multiple people; tax and tip split proportionally (or fixed) based on what each person ordered
+- **Shareable Web Links** — Friends open a link in their browser, mark their own items, and pay. No app download required
+- **Confirm & Lock** — Finalize a split to freeze editing on both the app and the shared link so totals can't change after everyone agrees (fully reversible)
+- **Payment Deep Links** — Venmo, PayPal, and Cash App links pre-filled with the exact amount; Cash, Zelle, and card users get a plain amount-owed message
+- **Payment Tracking** — A step-by-step post-split flow: who paid → how they get paid back → per-person send + paid/unpaid tracking
+- **Receipt History** — Revisit past splits, rename receipts, and track who's paid
+- **Free to Use** — Watch a short ad to earn a scan credit. No subscriptions, no paywalls. First scan is free, with a free daily pass when no ads are available
+- **Reliability Engineering** — Idempotent uploads (SHA-256 dedup), undo for deletes and splits, launch-time update gate, remote maintenance mode, and Crashlytics monitoring
 
 ---
 
@@ -69,7 +77,7 @@ Start Screen --> Tutorial --> Login --> Home
                              |           |
                         Earn Credit   Split Items
                                      - Add friends
-                                     - Assign items
+                                     - Assign items (quantities, flags)
                                      - Create share link
                                           |
                                       Breakdown
@@ -82,7 +90,7 @@ Start Screen --> Tutorial --> Login --> Home
 
 ## Apple Review Journey
 
-Divvy went through **8 Apple review rejections** before being approved on May 27, 2026. Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better.
+FastSplit (originally launched as Divvy) went through **8 Apple review rejections** before its first approval on May 27, 2026. Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better. Since then, three further versions have been approved.
 
 | # | Date | Guideline | Rejection Reason | Fix |
 |---|------|-----------|------------------|-----|
@@ -90,10 +98,19 @@ Divvy went through **8 Apple review rejections** before being approved on May 27
 | 2 | Apr 10 | 2.1(a) | "No ads displayed" after tapping Watch Ad | Ad networks don't serve in Apple's sandbox — built entire 4-tier ad cascade with free pass fallback |
 | 3 | Apr 21 | 2.1(a) | "Screen loads indefinitely" (ad cascade took ~96 seconds) | Cut cascade from 96s to 34s, added visible countdown timer, created demo account with 100 credits |
 | 4 | Apr 23 | 2.1(a), 2.1 | Still flagging "no ads"; ATT prompt not found by reviewer | Explained expected sandbox behavior; moved ATT to first Watch Ad tap; provided screen recording from physical device |
-| 5 | Apr 23 | 5.1.1(iv) | ATT pre-prompt wording "encouraged tracking" ("Allow Personalized Ads" button) | Complete ATT rewrite — neutral "About Ads in Divvy" title, single "Continue" button, no persuasive language |
+| 5 | Apr 23 | 5.1.1(iv) | ATT pre-prompt wording "encouraged tracking" ("Allow Personalized Ads" button) | Complete ATT rewrite — neutral "About Ads" title, single "Continue" button, no persuasive language |
 | 6 | Apr 25 | 4 (Design) | Google Sign-In opened Safari; sign-up text clipped on iPad | Replaced `@react-native-google-signin` with `expo-auth-session` (in-app `ASWebAuthenticationSession`); built responsive scaling hook |
 | 7 | Apr 28 | 4 (Design) | Google Auth re-raised (was actually ASWebAuthenticationSession); iPad toggle re-raised | Responded with video evidence from physical iPad proving in-app auth; added ScrollView wrapping for iPad |
 | 8 | May 25 | 2.1 | ATT prompt not found by reviewer (re-raised) | No code change — responded with video evidence showing ATT flow. **Approved May 27.** |
+
+### Since the first approval
+
+| Version | Result | What shipped |
+|---------|--------|--------------|
+| Metadata update | Approved | Marketing URL added for AdMob `app-ads.txt` verification |
+| v1.8.0 | Approved & released | **Rebrand to FastSplit**, custom domain (fastsplitapp.com), in-app video tutorial, upload idempotency, Firebase Analytics, full iPad support |
+| v1.9.0 | Approved & released (Jul 2026) | Redesigned step-by-step payment screen, Confirm/lock edit-freeze (app + share link), receipt names in History, update gate + remote maintenance mode |
+| v1.10.0 | Submitting (Jul 2026) | Receipt quantities + Split Item, AI-accuracy safeguards (flagged items + line-by-line totals check against the photo), item-delete undo, ask-first ad dialogs |
 
 ### Lessons Learned
 
@@ -121,42 +138,17 @@ Users watch a rewarded ad to earn 1 scan credit. Each receipt scan consumes 1 cr
 
 ## Status
 
-**Version:** 1.7 | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (approved May 27, 2026) — actively improving
+**Version:** 1.9.0 live · 1.10.0 submitting | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (first approved May 27, 2026) — actively improving
 
-> Divvy is **live on the App Store** after 8 rejections and 51 days of review. Each rejection surfaced a different issue — privacy strings, ad behavior in sandbox environments, ATT compliance, OAuth UX, and iPad layout. Every one was resolved, and the app is substantially better for it.
->
-> The approved version is the MVP. Active development is focused on UI/UX refinements, improved visual design, and a more polished user experience across the app.
+> FastSplit is **live on the App Store** after 8 rejections and 51 days of review, followed by three approved updates. What started as an MVP is now a production app: rebranded, on a custom domain, with a redesigned payment flow, quantity-aware AI receipt parsing with accuracy safeguards, and shareable web links friends can use without installing anything.
 
 ---
 
 ## Links
 
-- **Website:** [divvy-app-491221.web.app](https://divvy-app-491221.web.app)
-- **Privacy Policy:** [divvy-app-491221.web.app/privacy-policy.html](https://divvy-app-491221.web.app/privacy-policy.html)
-
----
-
-## Repository Structure
-
-```
-Divvy/
-├── README.md                  # This file
-├── CHANGES.md                 # High-level changelog
-├── LICENSE                    # All rights reserved
-├── docs/
-│   └── apple-reviews/         # Apple review history with responses
-├── website/
-│   ├── index.html             # Landing page
-│   ├── privacy-policy.html    # Privacy policy
-│   └── logov2.png             # Logo
-└── assets/
-    ├── applogo.png            # App icon
-    ├── logov2.png             # In-app logo
-    ├── tutorial_1-5.png       # App tutorial screenshots
-    ├── Venmo_Logo.png         # Venmo logo
-    ├── PayPal.png             # PayPal logo
-    └── Cash-App-Logo.png      # Cash App logo
-```
+- **App Store:** [apps.apple.com/us/app/fastsplit/id6761271231](https://apps.apple.com/us/app/fastsplit/id6761271231)
+- **Website:** [fastsplitapp.com](https://fastsplitapp.com)
+- **Privacy Policy:** [fastsplitapp.com/privacy-policy.html](https://fastsplitapp.com/privacy-policy.html)
 
 > **Note:** Source code is maintained in a private repository. This public repo contains documentation, assets, and the Apple review journey for portfolio purposes. Code is available for live demo upon request.
 
