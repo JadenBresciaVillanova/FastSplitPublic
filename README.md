@@ -22,8 +22,6 @@ Snap a photo of any receipt. AI reads every item, price, quantity, and total. As
   <img src="assets/screenshots/03.png" alt="Share" width="150">
   &nbsp;&nbsp;
   <img src="assets/screenshots/04.png" alt="Breakdown" width="150">
-  &nbsp;&nbsp;
-  <img src="assets/screenshots/05.png" alt="Pay" width="150">
 </p>
 
 ### Accepted Payment Methods
