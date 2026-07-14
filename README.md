@@ -113,7 +113,7 @@ Start Screen --> Tutorial --> Login --> Home
 
 ## Apple Review Journey
 
-FastSplit (originally launched as Divvy) went through **8 Apple review rejections** before its first approval on May 27, 2026. Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better. Since then, five further versions have been approved.
+FastSplit (originally launched as Divvy) went through **8 Apple review rejections** before its first approval on May 27, 2026. Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better. Since then, six further versions have been approved.
 
 | # | Date | Guideline | Rejection Reason | Fix |
 |---|------|-----------|------------------|-----|
@@ -135,7 +135,7 @@ FastSplit (originally launched as Divvy) went through **8 Apple review rejection
 | v1.9.0 | Approved & released (Jul 2026) | Redesigned step-by-step payment screen, Confirm/lock edit-freeze (app + share link), receipt names in History, update gate + remote maintenance mode |
 | v1.10.0 | Approved & released (Jul 2026) | Receipt quantities + Split Item, AI-accuracy safeguards (flagged items + line-by-line totals check against the photo), item-delete undo, ask-first ad dialogs |
 | v1.11.0 | Approved & released (Jul 2026) | In-app Bug Reporting (Settings), ad-reward credit reliability fix (server-verified rewards confirmed on the primary path), ads SDK update |
-| v1.12.0 | Submitting (Jul 2026) | Redesigned home with a money dashboard (owed / collected / monthly volume), mark-paid from home or the web link (any method — even cash), swipe-to-remove, and a rebuilt live share page: numbered steps, item editing + Split Item on the web, editable receipt names |
+| v1.12.0 | **Approved & released (Jul 14, 2026) — first-pass approval** | Redesigned home with a money dashboard (owed / collected / monthly volume), mark-paid from home or the web link (any method — even cash), swipe-to-remove, and a rebuilt live share page: numbered steps, item editing + Split Item on the web, editable receipt names |
 
 ### Lessons Learned
 
@@ -163,9 +163,9 @@ Users watch a rewarded ad to earn 1 scan credit. Each receipt scan consumes 1 cr
 
 ## Status
 
-**Version:** 1.11.0 live · 1.12.0 submitting | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (first approved May 27, 2026) — actively improving
+**Version:** 1.12.0 live | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (first approved May 27, 2026) — actively improving
 
-> FastSplit is **live on the App Store** after 8 rejections and 51 days of review, followed by five approved updates. What started as an MVP is now a production app: rebranded, on a custom domain, with a money dashboard, a redesigned payment flow, quantity-aware AI receipt parsing with accuracy safeguards, and live-syncing web links friends can split and pay from without installing anything.
+> FastSplit is **live on the App Store** after 8 rejections and 51 days of review, followed by six approved updates — the latest a first-pass approval. What started as an MVP is now a production app: rebranded, on a custom domain, with a money dashboard, a redesigned payment flow, quantity-aware AI receipt parsing with accuracy safeguards, and live-syncing web links friends can split and pay from without installing anything.
 
 ---
 
