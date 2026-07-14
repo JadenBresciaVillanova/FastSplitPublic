@@ -41,23 +41,48 @@ Snap a photo of any receipt. AI reads every item, price, quantity, and total. As
 1. **Scan** — Take a photo of any receipt and AI extracts every item, price, quantity, tax, and total instantly
 2. **Split** — Add friends and tap items to assign who ordered what. Tax and tip are split proportionally
 3. **Share** — Send friends a link they can open in any browser to mark their own items — no app install needed
-4. **Pay** — One-tap payment links via Venmo, PayPal, or Cash App with itemized breakdowns
+4. **Pay** — One-tap Venmo, PayPal, or Cash App links with the exact amount pre-filled — or pay with cash and just mark it paid
 
 ---
 
 ## Features
 
-- **AI Receipt Scanning** — Handles itemized bills, quantities, tax, discounts, and tips across restaurant, grocery, and retail receipt formats
-- **Quantity Splitting** — A "3 x Juice" line shows as ×3 with a **Split Item** button that breaks it into single rows (penny-exact math) so each one can go to a different person — with Undo
-- **Accuracy Safeguards** — Items the AI wasn't sure about are highlighted for review, and a built-in totals check compares the parsed math line-by-line against your receipt photo so mistakes are easy to spot and fix
-- **Smart Splitting** — Assign items to multiple people; tax and tip split proportionally (or fixed) based on what each person ordered
-- **Shareable Web Links** — Friends open a link in their browser, mark their own items, and pay. No app download required
-- **Confirm & Lock** — Finalize a split to freeze editing on both the app and the shared link so totals can't change after everyone agrees (fully reversible)
-- **Payment Deep Links** — Venmo, PayPal, and Cash App links pre-filled with the exact amount; Cash, Zelle, and card users get a plain amount-owed message
-- **Payment Tracking** — A step-by-step post-split flow: who paid → how they get paid back → per-person send + paid/unpaid tracking
-- **Receipt History** — Revisit past splits, rename receipts, and track who's paid
-- **Free to Use** — Watch a short ad to earn a scan credit. No subscriptions, no paywalls. First scan is free, with a free daily pass when no ads are available
-- **Reliability Engineering** — Idempotent uploads (SHA-256 dedup), undo for deletes and splits, launch-time update gate, remote maintenance mode, and Crashlytics monitoring
+### 📸 Scan
+
+- **AI Receipt Scanning** — Snap or upload any receipt — restaurant, grocery, retail — and every item, price, quantity, discount, tax, and tip is extracted in seconds
+- **Accuracy Safeguards** — Items the AI wasn't sure about are highlighted, and a line-by-line totals check compares the parsed math against your receipt photo; amber "Totals off" / "Flagged" pills jump you straight to anything worth a second look
+- **Re-crop & Re-scan** — Bad photo? Re-crop the original or re-scan entirely without starting the split over
+- **Full Manual Control** — Rename items, fix prices, discounts, and quantities, or add anything the receipt missed — from the app *or* the shared web link
+
+### 🧮 Split
+
+- **Smart Splitting** — Assign items to any combination of people; tax and tip split proportionally to what each person ordered, or evenly — your choice, toggleable any time
+- **Quantity Splitting** — A "3 x Juice" line shows as ×3 with a **Split Item** button that breaks it into single rows (penny-exact math) so each one can go to a different person — on the app and the web page
+- **Split All** — One tap assigns every item to one person — a perfect starting point, with **Unsplit** to take it back
+- **Contacts Autofill** — Type a name and matching contacts appear instantly; matching happens entirely **on-device** and contacts never leave your phone
+- **Undo Everything** — Deleted an item, split a quantity, or removed a person by mistake? A 12-second Undo has your back
+
+### 🔗 Share & Pay
+
+- **Live Group Splitting** — Friends open a web link in any browser (no app, no account) and mark their own items through a numbered 4-step flow; every tap updates **live for the whole group**, with running totals of exactly who owes what
+- **Confirm & Lock** — Once everything's assigned and who-paid is set, anyone can confirm to freeze the split so totals can't change after the group agrees — fully reversible
+- **Payment Deep Links** — Venmo, PayPal, and Cash App buttons pre-filled with the exact amount owed; Cash, Zelle, and card users get a clean amount-owed message instead
+- **Mark Paid from Anywhere** — Settle up however you like — even cash — and check people off from the home screen, Receipt History, or right on the shared web page; it syncs everywhere instantly
+- **Guided Payment Flow** — A step-by-step post-split flow: who paid → how they get paid back → per-person or group-message send, with payment handles saved once and reused across every receipt
+
+### 📊 Track
+
+- **Money Dashboard** — The home screen shows what you're still owed, what you've collected back, and how much you've processed this month — each stat with a tap-through showing the receipt-by-receipt math
+- **Itemized Receipt Breakdowns** — Any past receipt expands into a By-Person view (cost + tax + tip = total, per head) or a By-Item table (price, discount, final, and who split it)
+- **Receipt History** — Revisit past splits, rename receipts (from the app or the web link), track who's paid, and swipe to remove old ones — removal never breaks a link a friend is still using
+
+### 🔒 Trust & Reliability
+
+- **Privacy-First** — Receipt photos are processed in memory and **never stored**; contacts are matched on-device and never uploaded; full account + data deletion is built in
+- **Free to Use** — Watch a short ad to earn a scan credit — no subscriptions, no paywalls. First scan is free, plus a free daily pass when no ads are available; every ad reward is **cryptographically verified server-side**
+- **Reliability Engineering** — Idempotent uploads (SHA-256 dedup), a launch-time update gate, remote maintenance mode, Crashlytics monitoring, and first-party ad-delivery diagnostics
+- **Help Where You Need It** — A (?) button on every screen with contextual tips, plus a built-in video tutorial (with playback speed controls) and a slide-by-slide walkthrough
+- **Sign in Your Way** — Apple, Google, or email — with full iPad support
 
 ---
 
@@ -88,7 +113,7 @@ Start Screen --> Tutorial --> Login --> Home
 
 ## Apple Review Journey
 
-FastSplit (originally launched as Divvy) went through **8 Apple review rejections** before its first approval on May 27, 2026. Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better. Since then, three further versions have been approved.
+FastSplit (originally launched as Divvy) went through **8 Apple review rejections** before its first approval on May 27, 2026. Each rejection surfaced a new issue — some obvious in hindsight, others surprising. Every one made the app better. Since then, five further versions have been approved.
 
 | # | Date | Guideline | Rejection Reason | Fix |
 |---|------|-----------|------------------|-----|
@@ -108,7 +133,9 @@ FastSplit (originally launched as Divvy) went through **8 Apple review rejection
 | Metadata update | Approved | Marketing URL added for AdMob `app-ads.txt` verification |
 | v1.8.0 | Approved & released | **Rebrand to FastSplit**, custom domain (fastsplitapp.com), in-app video tutorial, upload idempotency, Firebase Analytics, full iPad support |
 | v1.9.0 | Approved & released (Jul 2026) | Redesigned step-by-step payment screen, Confirm/lock edit-freeze (app + share link), receipt names in History, update gate + remote maintenance mode |
-| v1.10.0 | Submitting (Jul 2026) | Receipt quantities + Split Item, AI-accuracy safeguards (flagged items + line-by-line totals check against the photo), item-delete undo, ask-first ad dialogs |
+| v1.10.0 | Approved & released (Jul 2026) | Receipt quantities + Split Item, AI-accuracy safeguards (flagged items + line-by-line totals check against the photo), item-delete undo, ask-first ad dialogs |
+| v1.11.0 | Approved & released (Jul 2026) | In-app Bug Reporting (Settings), ad-reward credit reliability fix (server-verified rewards confirmed on the primary path), ads SDK update |
+| v1.12.0 | Submitting (Jul 2026) | Redesigned home with a money dashboard (owed / collected / monthly volume), mark-paid from home or the web link (any method — even cash), swipe-to-remove, and a rebuilt live share page: numbered steps, item editing + Split Item on the web, editable receipt names |
 
 ### Lessons Learned
 
@@ -136,9 +163,9 @@ Users watch a rewarded ad to earn 1 scan credit. Each receipt scan consumes 1 cr
 
 ## Status
 
-**Version:** 1.9.0 live · 1.10.0 submitting | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (first approved May 27, 2026) — actively improving
+**Version:** 1.11.0 live · 1.12.0 submitting | **Platform:** iOS (iPhone + iPad) | **Status:** Live on the App Store (first approved May 27, 2026) — actively improving
 
-> FastSplit is **live on the App Store** after 8 rejections and 51 days of review, followed by three approved updates. What started as an MVP is now a production app: rebranded, on a custom domain, with a redesigned payment flow, quantity-aware AI receipt parsing with accuracy safeguards, and shareable web links friends can use without installing anything.
+> FastSplit is **live on the App Store** after 8 rejections and 51 days of review, followed by five approved updates. What started as an MVP is now a production app: rebranded, on a custom domain, with a money dashboard, a redesigned payment flow, quantity-aware AI receipt parsing with accuracy safeguards, and live-syncing web links friends can split and pay from without installing anything.
 
 ---
 
