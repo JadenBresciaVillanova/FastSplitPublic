@@ -47,14 +47,14 @@ Snap a photo of any receipt. AI reads every item, price, quantity, and total. As
 
 ## Features
 
-### 📸 Scan
+### Scan
 
 - **AI Receipt Scanning** — Snap or upload any receipt — restaurant, grocery, retail — and every item, price, quantity, discount, tax, and tip is extracted in seconds
 - **Accuracy Safeguards** — Items the AI wasn't sure about are highlighted, and a line-by-line totals check compares the parsed math against your receipt photo; amber "Totals off" / "Flagged" pills jump you straight to anything worth a second look
 - **Re-crop & Re-scan** — Bad photo? Re-crop the original or re-scan entirely without starting the split over
 - **Full Manual Control** — Rename items, fix prices, discounts, and quantities, or add anything the receipt missed — from the app *or* the shared web link
 
-### 🧮 Split
+### Split
 
 - **Smart Splitting** — Assign items to any combination of people; tax and tip split proportionally to what each person ordered, or evenly — your choice, toggleable any time
 - **Quantity Splitting** — A "3 x Juice" line shows as ×3 with a **Split Item** button that breaks it into single rows (penny-exact math) so each one can go to a different person — on the app and the web page
@@ -62,7 +62,7 @@ Snap a photo of any receipt. AI reads every item, price, quantity, and total. As
 - **Contacts Autofill** — Type a name and matching contacts appear instantly; matching happens entirely **on-device** and contacts never leave your phone
 - **Undo Everything** — Deleted an item, split a quantity, or removed a person by mistake? A 12-second Undo has your back
 
-### 🔗 Share & Pay
+### Share & Pay
 
 - **Live Group Splitting** — Friends open a web link in any browser (no app, no account) and mark their own items through a numbered 4-step flow; every tap updates **live for the whole group**, with running totals of exactly who owes what
 - **Confirm & Lock** — Once everything's assigned and who-paid is set, anyone can confirm to freeze the split so totals can't change after the group agrees — fully reversible
@@ -70,13 +70,13 @@ Snap a photo of any receipt. AI reads every item, price, quantity, and total. As
 - **Mark Paid from Anywhere** — Settle up however you like — even cash — and check people off from the home screen, Receipt History, or right on the shared web page; it syncs everywhere instantly
 - **Guided Payment Flow** — A step-by-step post-split flow: who paid → how they get paid back → per-person or group-message send, with payment handles saved once and reused across every receipt
 
-### 📊 Track
+### Track
 
 - **Money Dashboard** — The home screen shows what you're still owed, what you've collected back, and how much you've processed this month — each stat with a tap-through showing the receipt-by-receipt math
 - **Itemized Receipt Breakdowns** — Any past receipt expands into a By-Person view (cost + tax + tip = total, per head) or a By-Item table (price, discount, final, and who split it)
 - **Receipt History** — Revisit past splits, rename receipts (from the app or the web link), track who's paid, and swipe to remove old ones — removal never breaks a link a friend is still using
 
-### 🔒 Trust & Reliability
+### Trust & Reliability
 
 - **Privacy-First** — Receipt photos are processed in memory and **never stored**; contacts are matched on-device and never uploaded; full account + data deletion is built in
 - **Free to Use** — Watch a short ad to earn a scan credit — no subscriptions, no paywalls. First scan is free, plus a free daily pass when no ads are available; every ad reward is **cryptographically verified server-side**
